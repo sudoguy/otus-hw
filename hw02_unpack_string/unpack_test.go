@@ -38,12 +38,51 @@ func TestUnpack(t *testing.T) {
 			err:      ErrInvalidString,
 		},
 		{
+			input:    "a1b1c1",
+			expected: "abc",
+		},
+		{
 			input:    "",
 			expected: "",
 		},
 	} {
 		result, err := Unpack(tst.input)
 		require.Equal(t, tst.err, err)
+		require.Equal(t, tst.expected, result)
+	}
+}
+
+func TestHasManyDigits(t *testing.T) {
+	for _, tst := range [...]struct {
+		input    string
+		expected bool
+	}{
+		{
+			input:    "123",
+			expected: true,
+		},
+		{
+			input:    "a2b3",
+			expected: false,
+		},
+		{
+			input:    "3abc",
+			expected: false,
+		},
+		{
+			input:    "45",
+			expected: true,
+		},
+		{
+			input:    "aaa10b",
+			expected: true,
+		},
+		{
+			input:    "",
+			expected: false,
+		},
+	} {
+		result := hasManyDigits(tst.input)
 		require.Equal(t, tst.expected, result)
 	}
 }
