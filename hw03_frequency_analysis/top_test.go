@@ -4,10 +4,11 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 // Change to true if needed
-var taskWithAsteriskIsCompleted = false
+var taskWithAsteriskIsCompleted = true
 
 var text = `Как видите, он  спускается  по  лестнице  вслед  за  своим
 	другом   Кристофером   Робином,   головой   вниз,  пересчитывая
@@ -57,4 +58,33 @@ func TestTop10(t *testing.T) {
 			assert.ElementsMatch(t, expected, Top10(text))
 		}
 	})
+
+	for _, tst := range [...]struct {
+		input    string
+		expected []string
+	}{
+		{
+			input:    "a a a a",
+			expected: []string{"a"},
+		},
+		{
+			input:    "a a a b b",
+			expected: []string{"a", "b"},
+		},
+		{
+			input:    "- - - - - - - - - -    -      ",
+			expected: []string{},
+		},
+		{
+			input:    "                        ",
+			expected: []string{},
+		},
+		{
+			input:    "? ! . @ $ #",
+			expected: []string{},
+		},
+	} {
+		result := Top10(tst.input)
+		require.Equal(t, tst.expected, result)
+	}
 }
