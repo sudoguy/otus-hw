@@ -1,4 +1,4 @@
-module github.com/sudoguy/hw10_program_optimization
+module github.com/sudoguy/otus-hw/hw10_program_optimization
 
 go 1.14
 

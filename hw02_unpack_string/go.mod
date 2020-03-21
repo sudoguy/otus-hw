@@ -1,4 +1,4 @@
-module github.com/sudoguy/hw02_unpack_string
+module github.com/sudoguy/otus-hw/hw02_unpack_string
 
 go 1.14
 

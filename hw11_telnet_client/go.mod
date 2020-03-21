@@ -1,4 +1,4 @@
-module github.com/sudoguy/hw11_telnet_client
+module github.com/sudoguy/otus-hw/hw11_telnet_client
 
 go 1.14
 

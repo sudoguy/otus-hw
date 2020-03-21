@@ -1,4 +1,4 @@
-module github.com/sudoguy/hw03_frequency_analysis
+module github.com/sudoguy/otus-hw/hw03_frequency_analysis
 
 go 1.14
 

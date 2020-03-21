@@ -1,4 +1,4 @@
-module github.com/sudoguy/hw06_pipeline_execution
+module github.com/sudoguy/otus-hw/hw06_pipeline_execution
 
 go 1.14
 

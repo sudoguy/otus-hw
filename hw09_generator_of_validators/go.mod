@@ -1,4 +1,4 @@
-module github.com/sudoguy/hw09_generator_of_validators
+module github.com/sudoguy/otus-hw/hw09_generator_of_validators
 
 go 1.14
 
