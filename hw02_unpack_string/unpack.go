@@ -34,7 +34,11 @@ func Unpack(text string) (string, error) {
 
 		if unicode.IsDigit(r) {
 			// если цифра, то пишем предыдущую букву count-1 раз, т.к. 1 раз букву мы уже записали
-			count, _ := strconv.Atoi(currentSymbol)
+			count, err := strconv.Atoi(currentSymbol)
+			if err != nil {
+				return "", err
+			}
+
 			builder.WriteString(strings.Repeat(prevSymbol, count-1))
 		} else {
 			// букву пишем всегда
